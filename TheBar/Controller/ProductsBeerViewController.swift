@@ -85,7 +85,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell else { return UITableViewCell() }
         
         let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
-        cell.textLabel?.text = productViewModel?.name
+        cell.textLabel?.text = productViewModel?.productBeerName
         
         return cell
     }

@@ -41,7 +41,11 @@ extension ProductViewModel {
 }
 
 extension ProductViewModel {
-    var name: String {
-        return self.product.name
+    var productBeerName: String {
+        return self.product.beerName
+    }
+    
+    var productBeerAlcoholContent: Double {
+        return self.product.beerAlcoholContent
     }
 }
