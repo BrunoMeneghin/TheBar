@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "8442D99D-C59E-4329-89E9-18944BD50DD8"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "593962D8-D5E7-4EE0-810A-285042C75B06"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBar/Controller/ProductsBeerViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "productsService()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "593962D8-D5E7-4EE0-810A-285042C75B06 - f17741d7c70f0736"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBar.ProductsBeerViewController.(productsService in _A33DE2915F3FA4DE6AE6FC095552B1A4)() -&gt; ()"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ProductsBeerViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "271">
+               </Location>
+               <Location
+                  uuid = "593962D8-D5E7-4EE0-810A-285042C75B06 - 2381e9d356b73c46"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;TheBar.Product&gt;&gt;) -&gt; () in TheBar.ProductsBeerViewController.(productsService in _A33DE2915F3FA4DE6AE6FC095552B1A4)() -&gt; ()"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ProductsBeerViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "171">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28D84513-51E4-408E-87BB-0464C30300FF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBar/Controller/ProductsBeerViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "productsService()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7D5E875-4A74-48D4-A7CC-A471E931088D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBar/Model/Network/HTTPClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "HTTPCode"
+            landmarkType = "13">
+            <Locations>
+               <Location
+                  uuid = "F7D5E875-4A74-48D4-A7CC-A471E931088D - cb5d9fca8e9f5575"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBar.HTTPCode.rawValue.getter : Swift.String"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Model/Network/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "F7D5E875-4A74-48D4-A7CC-A471E931088D - dd35e78e63669d6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBar.HTTPCode.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;TheBar.HTTPCode&gt;"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Model/Network/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "125">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

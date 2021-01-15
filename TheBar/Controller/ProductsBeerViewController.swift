@@ -5,20 +5,28 @@
 //  Created by Bruno Meneghin on 14/01/21.
 //
 
-import Foundation
 import UIKit
 
 private let cellIReusableIdentifier: String = "CellID"
 
-class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, URLProtocol {
     
     // MARK: - Instances & Properties
     
-    fileprivate var customNavBarScrollEdgeAppearence = UINavigationBarAppearance()
+    fileprivate var webService = WebService()
     
+    private var productsViewModel: ProductListViewModel?
     private lazy var tableView = CustomTableView(frame: CGRect.zero,
                                                  style: .grouped)
     
+    // MARK: - Computed Properties & Protocol
+    
+    var stringURL: String {
+        get {
+            return ProductsAPI.productsURL
+        }
+    }
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -30,12 +38,11 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         setupUI()
     }
     
-    // MARK: Functions
+    // MARK: Private func
     
     private func setupUI() {
         navigationController?.navigationBar.topItem?.title = "Beers"
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.scrollEdgeAppearance = customNavBarScrollEdgeAppearence
         
         view.addSubview(tableView)
         
@@ -45,21 +52,40 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
+    
+        productsService()
+    }
+    
+    private func productsService() {
+       guard let url = URL(string: stringURL) else { return }
+        
+        webService.loadProducts(url: url) { [weak self] product in
+            if let product = product {
+                self?.productsViewModel = ProductListViewModel(productList: product)
+                
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    self?.view.layoutIfNeeded()
+                }
+            }
+        }
     }
     
     // MARK: - TableView Data Source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        return self.productsViewModel?.numberOfSections ?? 0
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        25
+        return self.productsViewModel?.numberOfRowsInSection(section) ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell else { return UITableViewCell() }
         
-        cell.textLabel?.text = "Products Test"
+        let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
+        cell.textLabel?.text = productViewModel?.name
         
         return cell
     }

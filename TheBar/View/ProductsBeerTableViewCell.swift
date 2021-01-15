@@ -9,6 +9,8 @@ import UIKit
 
 class ProductsBeerTableViewCell: UITableViewCell {
     
+    // MARK: Properties
+    
     fileprivate let customBackgroundColor = UIColor.clear
     
     // MARK: - Lifecycle
