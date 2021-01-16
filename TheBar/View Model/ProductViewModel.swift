@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Product List View Model
 
@@ -47,5 +48,9 @@ extension ProductViewModel {
     
     var productBeerAlcoholContent: Double {
         return self.product.beerAlcoholContent
+    }
+    
+    var productBeerImage: String {
+        return self.product.beerImageURL
     }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// URL string should to be only a gettable property
 protocol URLProtocol {
     var stringURL: String { get }
 }

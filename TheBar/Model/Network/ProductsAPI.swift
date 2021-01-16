@@ -17,9 +17,10 @@ struct ProductsAPI {
         case productsPath = "/beers"
     }
     
-    static let productsURL: String = URL.productsBaseURL.rawValue + Path.productsPath.rawValue
+    static let productsURL: String = URL.productsBaseURL.rawValue
+                                     + Path.productsPath.rawValue
     
-    // MARK: Init
+    // MARK: Optinal Init
     
     let baseURL: URL
     let path: Path

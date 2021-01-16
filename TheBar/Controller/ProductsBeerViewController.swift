@@ -31,9 +31,11 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ProductsBeerTableViewCell.self, forCellReuseIdentifier: cellIReusableIdentifier)
+        tableView.register(ProductsBeerTableViewCell.self,
+                           forCellReuseIdentifier: cellIReusableIdentifier)
         
         setupUI()
     }
@@ -85,8 +87,14 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell else { return UITableViewCell() }
         
         let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
-        cell.textLabel?.text = productViewModel?.productBeerName
-        
+        cell.beerNameLabel.text = productViewModel?.productBeerName
+        cell.beerImageView.downloaded(from: productViewModel?.productBeerImage ?? "")
+        cell.beerBitternessLabel.text = String(Double(productViewModel?.productBeerAlcoholContent ?? 0))
+      
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return .init(view.frame.width * 0.25)
     }
 }
