@@ -18,9 +18,11 @@ class CustomTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
-        contentInset = UIEdgeInsets(top: 0.0, left: 0, bottom: 1.0, right: 0.0)
-        translatesAutoresizingMaskIntoConstraints = false
+        separatorInset = .zero
+        separatorStyle = .none
         backgroundColor = customBackgroundColor
+        translatesAutoresizingMaskIntoConstraints = false
+        contentInset = UIEdgeInsets(top: 0.0, left: 0, bottom: 1.5, right: 0.0)
     }
     
     required init?(coder: NSCoder) {

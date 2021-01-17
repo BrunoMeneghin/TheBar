@@ -15,20 +15,13 @@ class ProductsBeerTableViewCell: UITableViewCell {
     
     // MARK: - Setup Views
     
-    lazy var beerImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.clipsToBounds = true
-        imageView.backgroundColor = .systemPink
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
+    lazy var beerImageView = CustomImageView()
     
     lazy var beerNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.contentMode = .left
-        label.textColor = .purple
+        label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.lineBreakMode = .byTruncatingTail
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,25 +30,25 @@ class ProductsBeerTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var beerBitternessLabel: UILabel = {
+    lazy var beerAlcoholContentLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.contentMode = .left
+        label.textColor = .systemPink
         label.adjustsFontSizeToFitWidth = true
         label.lineBreakMode = .byTruncatingTail
-        label.textColor = UIColor(white: 0.8, alpha: 0.7)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 15.0)
       
         return label
     }()
     
-    lazy var beerBitternessPrefixLabel: UILabel = {
+    lazy var beerPrefixAlcoholContentLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .purple
+        label.textColor = .gray
         label.contentMode = .left
-        label.text = "Bitterness Content"
+        label.text = "Alcohol content"
         label.adjustsFontSizeToFitWidth = true
         label.lineBreakMode = .byTruncatingTail
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -80,8 +73,8 @@ class ProductsBeerTableViewCell: UITableViewCell {
         
         contentView.addSubview(beerImageView)
         contentView.addSubview(beerNameLabel)
-        contentView.addSubview(beerBitternessLabel)
-        contentView.addSubview(beerBitternessPrefixLabel)
+        contentView.addSubview(beerAlcoholContentLabel)
+        contentView.addSubview(beerPrefixAlcoholContentLabel)
         contentView.backgroundColor = customBackgroundColor
       
         NSLayoutConstraint.activate([
@@ -94,16 +87,16 @@ class ProductsBeerTableViewCell: UITableViewCell {
             beerNameLabel.leadingAnchor.constraint(equalTo: beerImageView.trailingAnchor, constant: metricSpace),
             beerNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -(metricSpace + metricSpace)),
             
-            beerBitternessPrefixLabel.leadingAnchor.constraint(equalTo: beerNameLabel.leadingAnchor),
-            beerBitternessPrefixLabel.topAnchor.constraint(equalTo: beerNameLabel.bottomAnchor, constant: metricSpace / 2),
+            beerPrefixAlcoholContentLabel.leadingAnchor.constraint(equalTo: beerNameLabel.leadingAnchor),
+            beerPrefixAlcoholContentLabel.topAnchor.constraint(equalTo: beerNameLabel.bottomAnchor, constant: metricSpace / 2),
             
-            beerBitternessLabel.centerYAnchor.constraint(equalTo: beerBitternessPrefixLabel.centerYAnchor),
-            beerBitternessLabel.leadingAnchor.constraint(equalTo: beerBitternessPrefixLabel.trailingAnchor, constant: metricSpace)
+            beerAlcoholContentLabel.centerYAnchor.constraint(equalTo: beerPrefixAlcoholContentLabel.centerYAnchor),
+            beerAlcoholContentLabel.leadingAnchor.constraint(equalTo: beerPrefixAlcoholContentLabel.trailingAnchor, constant: metricSpace)
         ])
     
         beerImageView.sizeToFit()
         beerNameLabel.sizeToFit()
-        beerBitternessLabel.sizeToFit()
+        beerAlcoholContentLabel.sizeToFit()
     }
     
     required init?(coder: NSCoder) {

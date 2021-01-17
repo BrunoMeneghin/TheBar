@@ -46,11 +46,23 @@ extension ProductViewModel {
         return self.product.beerName
     }
     
-    var productBeerAlcoholContent: Double {
-        return self.product.beerAlcoholContent
+    var productBeerTagline: String {
+        return self.product.beerTagline
     }
     
     var productBeerImage: String {
         return self.product.beerImageURL
+    }
+    
+    var productBeerDescription: String {
+        return self.product.beerDescription
+    }
+    
+    var productBeerAlcoholContent: Double {
+        return self.product.beerAlcoholContent
+    }
+
+    var productBeerBitternessScale: Double? {
+        return self.product.beerBitternessScale ?? 0
     }
 }

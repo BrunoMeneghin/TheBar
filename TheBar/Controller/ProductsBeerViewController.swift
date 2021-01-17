@@ -85,13 +85,23 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell else { return UITableViewCell() }
-        
+       
         let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
         cell.beerNameLabel.text = productViewModel?.productBeerName
         cell.beerImageView.downloaded(from: productViewModel?.productBeerImage ?? "")
-        cell.beerBitternessLabel.text = String(Double(productViewModel?.productBeerAlcoholContent ?? 0))
+        cell.beerAlcoholContentLabel.text = String(Double(productViewModel?.productBeerAlcoholContent ?? 0))
       
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productVM = self.productsViewModel?.productAtIndexPath(indexPath.row)
+        
+        let showDetailsBeerVC = ShowBeerViewController()
+        showDetailsBeerVC.title = productVM?.productBeerName
+        showDetailsBeerVC.donwloadBeerImageView = productVM?.productBeerImage ?? ""
+        
+        navigationController?.pushViewController(showDetailsBeerVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

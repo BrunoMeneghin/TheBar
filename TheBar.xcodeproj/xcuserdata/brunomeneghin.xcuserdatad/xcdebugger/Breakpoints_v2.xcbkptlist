@@ -7,129 +7,125 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F7D5E875-4A74-48D4-A7CC-A471E931088D"
+            uuid = "C8DABED5-E964-4E1F-A7FC-38B1C53B2D2D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TheBar/Model/Network/HTTPClient.swift"
+            filePath = "TheBar/Controller/ShowBeerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "HTTPCode"
-            landmarkType = "13">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "donwloadBeerImageView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3ED0E6E-BCE7-4FAF-89C1-AB93A6F67E0D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheBar/Controller/ShowBeerViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "donwloadBeerImageView"
+            landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "F7D5E875-4A74-48D4-A7CC-A471E931088D - cb5d9fca8e9f5575"
+                  uuid = "E3ED0E6E-BCE7-4FAF-89C1-AB93A6F67E0D - bb6973526478aaa2"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TheBar.HTTPCode.rawValue.getter : Swift.String"
+                  symbolName = "TheBar.ShowBeerViewController.donwloadBeerImageView.getter : Swift.String"
                   moduleName = "TheBar"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Model/Network/HTTPClient.swift"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ShowBeerViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "80">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "139">
                </Location>
                <Location
-                  uuid = "F7D5E875-4A74-48D4-A7CC-A471E931088D - dd35e78e63669d6b"
+                  uuid = "E3ED0E6E-BCE7-4FAF-89C1-AB93A6F67E0D - 8aec58bfbb43a2ae"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TheBar.HTTPCode.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;TheBar.HTTPCode&gt;"
+                  symbolName = "TheBar.ShowBeerViewController.donwloadBeerImageView.setter : Swift.String"
                   moduleName = "TheBar"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Model/Network/HTTPClient.swift"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ShowBeerViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "125">
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "366">
+               </Location>
+               <Location
+                  uuid = "E3ED0E6E-BCE7-4FAF-89C1-AB93A6F67E0D - 30d70d4a4833833a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBar.ShowBeerViewController.donwloadBeerImageView.modify : Swift.String"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ShowBeerViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "E3ED0E6E-BCE7-4FAF-89C1-AB93A6F67E0D - 3f0e3a905f408cc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBar.ShowBeerViewController.donwloadBeerImageView.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ShowBeerViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "E3ED0E6E-BCE7-4FAF-89C1-AB93A6F67E0D - c3bf51e9f38dc6a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBar.ShowBeerViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TheBar.ShowBeerViewController"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ShowBeerViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "416">
+               </Location>
+               <Location
+                  uuid = "E3ED0E6E-BCE7-4FAF-89C1-AB93A6F67E0D - 2eb0ee41d75dcb6c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheBar.ShowBeerViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TheBar.ShowBeerViewController&gt;"
+                  moduleName = "TheBar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brunomeneghin/Documents/Swift%20Practicals%20from%20Advanced%20Course/TheBar/TheBar/Controller/ShowBeerViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "321">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EA86577E-3566-4DD9-A336-EE3F93712C1B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheBar/Services/WebService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "loadProducts(url:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4321E7E1-3995-42D7-8B02-4878D9D8B8CB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheBar/Services/WebService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "loadProducts(url:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1923F542-1352-4B3F-A3C9-0241F38C2A5D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheBar/Services/WebService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "loadProducts(url:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A40F87CD-022B-4BFC-A520-B5C3A4DCECDC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheBar/Services/WebService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "loadProducts(url:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F2433D37-759D-4DA2-8D17-2FF71A17AB84"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheBar/Services/WebService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "loadProducts(url:completion:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
