@@ -40,11 +40,6 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         buildUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-    }
-    
     // MARK: Private func
     
     private func buildUI() {
