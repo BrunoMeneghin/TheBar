@@ -24,6 +24,7 @@ class ProductsBeerTableViewCell: UITableViewCell {
         label.textColor = .black
         label.adjustsFontSizeToFitWidth = true
         label.lineBreakMode = .byTruncatingTail
+        label.accessibilityIdentifier = "productBeerName"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 17.0)
         
@@ -68,7 +69,6 @@ class ProductsBeerTableViewCell: UITableViewCell {
         
         let metricSpace: CGFloat = 10.0
      
-        
         contentView.addSubview(beerImageView)
         contentView.addSubview(beerNameLabel)
         contentView.addSubview(beerAlcoholContentLabel)
@@ -89,7 +89,7 @@ class ProductsBeerTableViewCell: UITableViewCell {
             beerPrefixAlcoholContentLabel.topAnchor.constraint(equalTo: beerNameLabel.bottomAnchor, constant: metricSpace / 2),
             
             beerAlcoholContentLabel.centerYAnchor.constraint(equalTo: beerPrefixAlcoholContentLabel.centerYAnchor),
-            beerAlcoholContentLabel.leadingAnchor.constraint(equalTo: beerPrefixAlcoholContentLabel.trailingAnchor, constant: metricSpace)
+            beerAlcoholContentLabel.leadingAnchor.constraint(equalTo: beerPrefixAlcoholContentLabel.trailingAnchor, constant: metricSpace / 2)
         ])
     
         beerImageView.sizeToFit()

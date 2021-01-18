@@ -144,7 +144,8 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width,
-                                       height: UIScreen.main.bounds.height + 120.0)
+                                       height: UIScreen.main.bounds.height +
+                                               descriptionLabel.frame.height)
     }
     
     // MARK: - Private Funcs

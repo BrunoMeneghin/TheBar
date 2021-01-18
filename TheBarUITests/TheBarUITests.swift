@@ -21,14 +21,15 @@ class TheBarUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testShowBeerDetails() throws {
+        let _ = XCUIApplication().launch()
+        XCUIApplication().tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Trashy Blonde")/*[[".cells.containing(.staticText, identifier:\"4.1\")",".cells.containing(.staticText, identifier:\"Trashy Blonde\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.staticTexts["Alcohol content"].tap()
+    }
+    
+    func testScrollingBeerDetails() {
+        let _ = XCUIApplication().launch()
+        XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["Electric India"]/*[[".cells.staticTexts[\"Electric India\"]",".staticTexts[\"Electric India\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
     }
 
     func testLaunchPerformance() throws {

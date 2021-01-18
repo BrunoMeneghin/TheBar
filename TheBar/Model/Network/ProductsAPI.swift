@@ -5,9 +5,6 @@
 //  Created by Bruno Meneghin on 14/01/21.
 //
 
-import Foundation
-import UIKit
-
 struct ProductsAPI {
     indirect enum URL: String {
         case productsBaseURL = "https://api.punkapi.com/v2"

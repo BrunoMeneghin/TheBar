@@ -5,8 +5,6 @@
 //  Created by Bruno Meneghin on 15/01/21.
 //
 
-import Foundation
-
 struct Product: Decodable {
     var beerName: String
     var beerTagline: String

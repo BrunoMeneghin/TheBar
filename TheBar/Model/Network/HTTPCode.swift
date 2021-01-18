@@ -5,8 +5,6 @@
 //  Created by Bruno Meneghin on 14/01/21.
 //
 
-import UIKit
-
 enum HTTPCode: String {
     case success = "200: Request is success"
     case notFound = "400: The client has not been found"
