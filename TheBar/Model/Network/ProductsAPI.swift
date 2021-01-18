@@ -6,6 +6,8 @@
 //
 
 struct ProductsAPI {
+    // MARK: Enum
+    
     indirect enum URL: String {
         case productsBaseURL = "https://api.punkapi.com/v2"
     }

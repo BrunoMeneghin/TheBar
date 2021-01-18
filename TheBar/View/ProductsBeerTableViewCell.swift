@@ -11,7 +11,7 @@ class ProductsBeerTableViewCell: UITableViewCell {
     
     // MARK: Properties
     
-    fileprivate let customBackgroundColor = UIColor.clear
+    fileprivate lazy var customBackgroundColor = UIColor.clear
     
     // MARK: - Setup Views
     
