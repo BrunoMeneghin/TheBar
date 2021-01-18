@@ -63,7 +63,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
     private lazy var descriptionLabel: UILabel = {
         let description = UILabel()
-        description.text = descriptionContent
+        description.text = ""
         description.textColor = .black
         description.numberOfLines = 0
         description.contentMode = .center
@@ -71,7 +71,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
         description.lineBreakMode = .byTruncatingTail
         description.translatesAutoresizingMaskIntoConstraints = false
         description.font = UIFont(name: "KohinoorDevanagari-Regular", size: 17.0)
-        description.attributedText = NSAttributedString(string: description.text ?? "",
+        description.attributedText = NSAttributedString(string: descriptionContent,
                                                     attributes: [ .kern : 1.8 ])
         
         return description
@@ -127,7 +127,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     var descriptionContent: String = "" {
         didSet {
             if descriptionContent != oldValue {
-                
+                descriptionLabel.text = descriptionContent
             }
         }
     }
@@ -138,7 +138,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         scrollView.delegate = self
         
-        constructUI()
+        buildUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -149,7 +149,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Private Funcs
     
-    private final func constructUI() {
+    private final func buildUI() {
         view.addSubview(scrollView)
         view.backgroundColor = .white
         

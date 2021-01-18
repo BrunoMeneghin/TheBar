@@ -18,32 +18,41 @@ class WebService {
                 #if DEBUG
                 print(error?.localizedDescription ?? Error.self)
                 #endif
+                
+                completion(nil)
                 return
             }
-    
+            
+            guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200 else {
+                return
+            }
+            
             #if DEBUG
-            print(response)
+            self.verifyHTTPURLResponse(httpURLResponse)
             #endif
             
-            let products = try? JSONDecoder().decode([Product].self, from: data)
-            
-            if let products = products {
-                completion(products)
-                #if DEBUG
-                print(products.description)
-                #endif
-            }
+            guard let products = try? JSONDecoder().decode([Product].self, from: data) else { return }
+            completion(products)
             
         }.resume()
     }
-}
-
-extension Data {
-    var prettyJson: String? {
-        guard let object = try? JSONSerialization.jsonObject(with: self, options: []),
-              let data = try? JSONSerialization.data(withJSONObject: object, options: [.prettyPrinted]),
-              let prettyPrintedString = String(data: data, encoding:.utf8) else { return nil }
-
-        return prettyPrintedString
+    
+    private final func verifyHTTPURLResponse(_ HTTP: HTTPURLResponse) {
+        switch HTTP.statusCode {
+        case 200:
+            print(HTTPCode.success.identifier)
+            
+        case 400:
+            print(HTTPCode.hostNotFound.identifier)
+            
+        case 404:
+            print(HTTPCode.hostNotFound.identifier)
+        
+        case 500:
+            print(HTTPCode.badRequest.identifier)
+        
+        default:
+           break
+        }
     }
 }

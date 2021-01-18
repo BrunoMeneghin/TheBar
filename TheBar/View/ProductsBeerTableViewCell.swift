@@ -57,8 +57,6 @@ class ProductsBeerTableViewCell: UITableViewCell {
         return label
     }()
     
-    
-    
     // MARK: - Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

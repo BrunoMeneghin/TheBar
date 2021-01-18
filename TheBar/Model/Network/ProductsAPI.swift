@@ -20,7 +20,7 @@ struct ProductsAPI {
     static let productsURL: String = URL.productsBaseURL.rawValue
                                      + Path.productsPath.rawValue
     
-    // MARK: Optinal Init
+    // MARK: Init
     
     let baseURL: URL
     let path: Path

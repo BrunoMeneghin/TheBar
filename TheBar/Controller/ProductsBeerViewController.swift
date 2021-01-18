@@ -11,15 +11,15 @@ private let cellIReusableIdentifier: String = "CellID"
 
 class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, URLProtocol {
     
-    // MARK: - Instances & Properties
+    // MARK: Instances & Properties
     
-    fileprivate var webService = WebService()
+    fileprivate lazy var webService = WebService()
     
     private var productsViewModel: ProductListViewModel?
     private lazy var tableView = CustomTableView(frame: CGRect.zero,
                                                  style: .grouped)
     
-    // MARK: - Computed Properties & Protocol
+    // MARK: - Computed Properties
     
     var stringURL: String {
         get {
@@ -37,12 +37,12 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         tableView.register(ProductsBeerTableViewCell.self,
                            forCellReuseIdentifier: cellIReusableIdentifier)
         
-        setupUI()
+        buildUI()
     }
     
     // MARK: Private func
     
-    private func setupUI() {
+    private func buildUI() {
         navigationController?.navigationBar.topItem?.title = "Beers"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -87,6 +87,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell else { return UITableViewCell() }
        
         let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
+        
         cell.beerNameLabel.text = productViewModel?.productBeerName
         cell.beerImageView.downloaded(from: productViewModel?.productBeerImage ?? "")
         cell.beerAlcoholContentLabel.text = String(Double(productViewModel?.productBeerAlcoholContent ?? 0))
