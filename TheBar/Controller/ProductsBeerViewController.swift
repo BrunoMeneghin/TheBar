@@ -99,10 +99,12 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         
         let showDetailsBeerVC = ShowBeerViewController()
         showDetailsBeerVC.title = productVM?.productBeerName
-        showDetailsBeerVC.beerTagline = productVM?.productBeerTagline ?? ""
+        showDetailsBeerVC.taglineContent = productVM?.productBeerTagline ?? ""
+        showDetailsBeerVC.descriptionContent = productVM?.productBeerDescription ?? ""
         showDetailsBeerVC.donwloadBeerImageWithStringURL = productVM?.productBeerImage ?? ""
         showDetailsBeerVC.alcoholContent = String(Double(productVM?.productBeerAlcoholContent ?? 0))
-        
+        showDetailsBeerVC.bitternessScale = String(Double(productVM?.productBeerBitternessScale ?? 0))
+       
         navigationController?.pushViewController(showDetailsBeerVC, animated: true)
     }
     
