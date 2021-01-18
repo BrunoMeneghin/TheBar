@@ -10,6 +10,7 @@ import UIKit
 
 extension UIImageView {
     func downloadImage(from url: String) {
+        clipsToBounds = true
         tintColor = .lightGray
         contentMode = .scaleAspectFit
        
