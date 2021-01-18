@@ -90,7 +90,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     var donwloadBeerImageWithStringURL: String = "" {
         didSet {
             if donwloadBeerImageWithStringURL != oldValue {
-                customBeerImageView.downloaded(from: donwloadBeerImageWithStringURL)
+                customBeerImageView.downloadImage(from: donwloadBeerImageWithStringURL)
             } else {
                 customBeerImageView.image = defaultBeerImage
             }

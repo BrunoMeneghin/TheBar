@@ -9,26 +9,25 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func downloadedProductImage(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        contentMode = mode
+    func downloadImage(from url: String) {
+        tintColor = .lightGray
+        contentMode = .scaleAspectFit
+       
+        self.image = UIImage(systemName: "photo.fill.on.rectangle.fill")
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
+        guard let stringURLPathFromImage = URL(string: url) else { return }
+       
+        DownloadableImageService.shared.loadingImage(from: stringURLPathFromImage) { [weak self] (image) in
             
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
-            }
-        }.resume()
-    }
-    
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedProductImage(from: url, contentMode: mode)
+            guard let image = image else { return }
+            
+            self?.alpha = 0
+            self?.image = image
+           
+            UIView.animate(withDuration: 0.4, animations: {
+                self?.alpha = 0.8
+            })
+        }
     }
 }
 

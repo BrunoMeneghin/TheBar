@@ -40,6 +40,11 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         buildUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
+    
     // MARK: Private func
     
     private func buildUI() {
@@ -89,7 +94,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
         
         cell.beerNameLabel.text = productViewModel?.productBeerName
-        cell.beerImageView.downloaded(from: productViewModel?.productBeerImage ?? "")
+        cell.beerImageView.downloadImage(from: productViewModel?.productBeerImage ?? "")
         cell.beerAlcoholContentLabel.text = String(Double(productViewModel?.productBeerAlcoholContent ?? 0))
       
         return cell
