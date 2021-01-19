@@ -1,5 +1,5 @@
 //
-//  DowloadImage.swift
+//  DownloadImage.swift
 //  TheBar
 //
 //  Created by Bruno Meneghin on 18/01/21.

@@ -23,10 +23,8 @@ class WebService {
                 return
             }
             
-            guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200 else {
-                return
-            }
-            
+            guard let httpURLResponse = response as? HTTPURLResponse else { return }
+           
             #if DEBUG
             self.verifyHTTPURLResponse(httpURLResponse)
             #endif
