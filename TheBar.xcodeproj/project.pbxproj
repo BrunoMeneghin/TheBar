@@ -26,7 +26,7 @@
 		68C0C91C25B0C4230000A1F3 /* ProductsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C91B25B0C4230000A1F3 /* ProductsAPI.swift */; };
 		68C0C92125B0C5610000A1F3 /* HTTPCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C92025B0C5610000A1F3 /* HTTPCode.swift */; };
 		68C0C92C25B0D4970000A1F3 /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C92B25B0D4960000A1F3 /* URLProtocol.swift */; };
-		68E201F625B647B100085C7C /* DowloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E201F525B647B100085C7C /* DowloadImage.swift */; };
+		68E201F625B647B100085C7C /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E201F525B647B100085C7C /* DownloadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,7 @@
 		68C0C91B25B0C4230000A1F3 /* ProductsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAPI.swift; sourceTree = "<group>"; };
 		68C0C92025B0C5610000A1F3 /* HTTPCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCode.swift; sourceTree = "<group>"; };
 		68C0C92B25B0D4960000A1F3 /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
-		68E201F525B647B100085C7C /* DowloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DowloadImage.swift; sourceTree = "<group>"; };
+		68E201F525B647B100085C7C /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +223,7 @@
 				68C0C92025B0C5610000A1F3 /* HTTPCode.swift */,
 				68C0C92B25B0D4960000A1F3 /* URLProtocol.swift */,
 				68C0C91B25B0C4230000A1F3 /* ProductsAPI.swift */,
-				68E201F525B647B100085C7C /* DowloadImage.swift */,
+				68E201F525B647B100085C7C /* DownloadImage.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 				683BCB6325B362E1007CB876 /* ImageView+Extension.swift in Sources */,
 				6824A7A925B21A4700DB75E3 /* Product.swift in Sources */,
 				68476FA825AFEC5E0005503C /* TheBar.xcdatamodeld in Sources */,
-				68E201F625B647B100085C7C /* DowloadImage.swift in Sources */,
+				68E201F625B647B100085C7C /* DownloadImage.swift in Sources */,
 				68476F9E25AFEC5E0005503C /* AppDelegate.swift in Sources */,
 				68476FA025AFEC5E0005503C /* SceneDelegate.swift in Sources */,
 				68C0C92C25B0D4970000A1F3 /* URLProtocol.swift in Sources */,
