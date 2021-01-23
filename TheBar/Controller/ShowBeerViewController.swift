@@ -9,7 +9,7 @@ import UIKit
 
 class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
-    // MARK: - Setup Views
+    // MARK: Setup Views
     
     private lazy var customBeerImageView = CustomImageView()
     
