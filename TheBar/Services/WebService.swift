@@ -37,17 +37,17 @@ class WebService {
     
     private final func verifyHTTPURLResponse(_ HTTP: HTTPURLResponse) {
         switch HTTP.statusCode {
-        case 200:
+        case 200...299:
             print(HTTPCode.success.identifier)
             
         case 400:
-            print(HTTPCode.hostNotFound.identifier)
+            print(HTTPCode.badRequest.identifier)
             
         case 404:
-            print(HTTPCode.hostNotFound.identifier)
+            print(HTTPCode.notFound.identifier)
         
-        case 500:
-            print(HTTPCode.badRequest.identifier)
+        case 500...511:
+            print(HTTPCode.serverError.identifier)
         
         default:
            break

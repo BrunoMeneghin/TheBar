@@ -7,9 +7,9 @@
 
 enum HTTPCode: String {
     case success = "200: Request is success"
-    case notFound = "400: The client has not been found"
-    case hostNotFound = "404: The host has not been found"
-    case badRequest = "500: Bad request"
+    case badRequest = "400: Bad request"
+    case notFound = "404: The host has not been found"
+    case serverError = "500: Internal server error"
     
     var identifier: String {
         get {
