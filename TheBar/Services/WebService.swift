@@ -6,51 +6,39 @@
 //
 
 import Foundation
+ 
 
 class WebService {
     
     // MARK: Function
     
-    func loadProducts(url: URL, completion: @escaping ([Product]?) -> Void) {
+    func loadProducts(url: URL, completion: @escaping (Result<[Product]?, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data,
                                 let response = response else {
-                #if DEBUG
-                print(error?.localizedDescription ?? Error.self)
-                #endif
                 
-                completion(nil)
                 return
             }
             
             guard let httpURLResponse = response as? HTTPURLResponse else { return }
-           
-            #if DEBUG
-            self.verifyHTTPURLResponse(httpURLResponse)
-            #endif
             
-            guard let products = try? JSONDecoder().decode([Product].self, from: data) else { return }
-            completion(products)
+            switch httpURLResponse.statusCode {
+            case 200...299:
+                guard let products = try? JSONDecoder().decode([Product].self, from: data) else { return }
+                completion(.success(products))
+                
+            case 400:
+                completion(.failure(HTTPCode.badRequest))
+                
+            case 404:
+                completion(.failure(HTTPCode.notFound))
             
+            case 500...511:
+                completion(.failure(HTTPCode.serverError))
+            
+            default:
+               break
+            }
         }.resume()
-    }
-    
-    private final func verifyHTTPURLResponse(_ HTTP: HTTPURLResponse) {
-        switch HTTP.statusCode {
-        case 200...299:
-            print(HTTPCode.success.identifier)
-            
-        case 400:
-            print(HTTPCode.badRequest.identifier)
-            
-        case 404:
-            print(HTTPCode.notFound.identifier)
-        
-        case 500...511:
-            print(HTTPCode.serverError.identifier)
-        
-        default:
-           break
-        }
     }
 }

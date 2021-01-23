@@ -5,15 +5,31 @@
 //  Created by Bruno Meneghin on 14/01/21.
 //
 
-enum HTTPCode: String {
-    case success = "200: Request is success"
-    case badRequest = "400: Bad request"
-    case notFound = "404: The host has not been found"
-    case serverError = "500: Internal server error"
+enum HTTPCode: Error {
+    case success
+    case badRequest
+    case notFound
+    case serverError
     
     var identifier: String {
-        get {
-            return self.rawValue
+        switch self {
+        case .success:
+            return "200: Request is success"
+        
+        case .badRequest:
+            return  "400: Bad request"
+        
+        case .notFound:
+            return "404: The host has not been found"
+        
+        case .serverError:
+            return "500: Internal server error"
         }
+    }
+}
+
+extension HTTPCode: Equatable {
+    static func ==(lhs: HTTPCode, rhs: HTTPCode) -> Bool {
+        return lhs.localizedDescription == rhs.localizedDescription
     }
 }

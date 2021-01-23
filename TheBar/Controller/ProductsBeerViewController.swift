@@ -61,14 +61,25 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     private func productsService() {
        guard let url = URL(string: stringURL) else { return }
         
-        webService.loadProducts(url: url) { [weak self] product in
-            if let product = product {
-                self?.productsViewModel = ProductListViewModel(productList: product)
+        webService.loadProducts(url: url) { (result) in
+            switch result {
                 
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.view.layoutIfNeeded()
+            case .success(let product):
+                if let product = product {
+                    self.productsViewModel = ProductListViewModel(productList: product)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.view.layoutIfNeeded()
+                    }
                 }
+                
+            case .failure(let error):
+                #if DEBUG
+                print(error.localizedDescription)
+                #endif
+                
+                return
             }
         }
     }
