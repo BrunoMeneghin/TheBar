@@ -17,14 +17,27 @@ class WebService {
             guard error == nil, let data = data,
                                 let response = response else {
                 
+                #if DEBUG
+                if let err = error {
+                    print(err.localizedDescription)
+                }
+                #endif
+                
                 return
             }
             
-            guard let httpURLResponse = response as? HTTPURLResponse else { return }
-            
+            guard let httpURLResponse = response as? HTTPURLResponse,
+                  let products = try? JSONDecoder().decode([Product].self, from: data) else {
+                
+                #if DEBUG
+                print("data: ", data.description)
+                #endif
+                
+                return
+            }
+        
             switch httpURLResponse.statusCode {
             case 200...299:
-                guard let products = try? JSONDecoder().decode([Product].self, from: data) else { return }
                 completion(.success(products))
                 
             case 400:
