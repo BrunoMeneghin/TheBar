@@ -30,6 +30,6 @@ enum HTTPCode: Error {
 
 extension HTTPCode: Equatable {
     static func ==(lhs: HTTPCode, rhs: HTTPCode) -> Bool {
-        return lhs.localizedDescription == rhs.localizedDescription
+        return lhs.identifier == rhs.identifier
     }
 }
