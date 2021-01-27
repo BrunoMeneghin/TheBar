@@ -7,5 +7,5 @@
 
 /// URL String should to be only a gettable property
 protocol URLProtocol {
-    var stringURL: String { get }
+    var productsStringURL: String { get }
 }

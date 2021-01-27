@@ -9,24 +9,17 @@ import UIKit
 
 private let cellIReusableIdentifier: String = "CellID"
 
-class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, URLProtocol {
+class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Instances & Properties
     
     fileprivate lazy var webService = WebService()
     
     private var productsViewModel: ProductListViewModel?
+    private lazy var productsAPIVIewModel = ProductAPIViewModel()
     private lazy var tableView = CustomTableView(frame: CGRect.zero,
                                                  style: .grouped)
-    
-    // MARK: - Computed Properties
-    
-    var stringURL: String {
-        get {
-            return ProductsAPI.productsURL
-        }
-    }
-
+        
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -59,7 +52,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     private func productsService() {
-       guard let url = URL(string: stringURL) else { return }
+        guard let url = URL(string: productsAPIVIewModel.productsStringURL) else { return }
         
         webService.loadProducts(url: url) { [weak self] (result) in
             switch result {
