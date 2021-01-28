@@ -16,7 +16,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     fileprivate lazy var webService = WebService()
     
     private var productsViewModel: ProductListViewModel?
-    private lazy var productsAPIVIewModel = ProductAPIViewModel()
+    private lazy var productsAPIViewModel = ProductAPIViewModel()
     private lazy var tableView = CustomTableView(frame: CGRect.zero,
                                                  style: .grouped)
         
@@ -52,7 +52,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     private func productsService() {
-        guard let url = URL(string: productsAPIVIewModel.productsStringURL) else { return }
+        guard let url = URL(string: productsAPIViewModel.productsStringURL) else { return }
         
         webService.loadProducts(url: url) { [weak self] (result) in
             switch result {
