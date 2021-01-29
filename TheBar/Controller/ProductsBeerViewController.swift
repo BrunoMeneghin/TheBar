@@ -61,7 +61,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
                 if let product = product {
                     self?.productsViewModel = ProductListViewModel(productList: product)
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { [weak self] in
                         self?.tableView.reloadData()
                         self?.view.layoutIfNeeded()
                     }
@@ -69,7 +69,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
                 
             case .failure(let error):
                 #if DEBUG
-                print(error.localizedDescription)
+                print(error.identifier)
                 #endif
                 
                 return

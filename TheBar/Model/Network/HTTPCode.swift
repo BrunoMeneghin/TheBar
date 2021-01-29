@@ -14,7 +14,7 @@ enum HTTPCode: Error {
     var identifier: String {
         switch self {
         case .success:
-            return "200: Request is success"
+            return "200 ~ 299: Request is success"
         
         case .badRequest:
             return  "400: Bad request"
@@ -23,7 +23,7 @@ enum HTTPCode: Error {
             return "404: The host has not been found"
         
         case .serverError:
-            return "500: Internal server error"
+            return "500 ~ 511: Internal server error"
         }
     }
 }

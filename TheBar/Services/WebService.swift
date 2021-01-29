@@ -11,7 +11,7 @@ class WebService {
     
     // MARK: Function
     
-    func loadProducts(url: URL, completion: @escaping (Result<[Product]?, Error>) -> Void) {
+    func loadProducts(url: URL, completion: @escaping (Result<[Product]?, HTTPCode>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data,
                                 let response = response else {
@@ -28,7 +28,7 @@ class WebService {
             guard let httpURLResponse = response as? HTTPURLResponse,
                   let products = try? JSONDecoder().decode([Product].self, from: data) else {
                 
-                #if DEBUG
+                #if DEBUGh
                 print("data: ", data.description)
                 #endif
                 
