@@ -7,15 +7,15 @@
 
 import Foundation
 
-class WebService {
+final class WebService {
     
     // MARK: Function
     
-    func loadProducts(url: URL, completion: @escaping (Result<[Product]?, HTTPCode>) -> Void) {
+    func productsService(url: URL, completion: @escaping (Result<[Product]?, HTTPClient>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data,
                                 let response = response else {
-                
+               
                 #if DEBUG
                 if let err = error {
                     print(err.localizedDescription)
@@ -25,32 +25,26 @@ class WebService {
                 return
             }
             
-            guard let httpURLResponse = response as? HTTPURLResponse,
-                  let products = try? JSONDecoder().decode([Product].self, from: data) else {
-                
-                #if DEBUGh
-                print("data: ", data.description)
-                #endif
-                
-                return
-            }
-        
+            let products = try? JSONDecoder().decode([Product].self, from: data)
+            guard let httpURLResponse = response as? HTTPURLResponse else { return }
+          
             switch httpURLResponse.statusCode {
-            case 200...299:
-                completion(.success(products))
+
+            case 200...299: completion(.success(products))
                 
-            case 400:
-                completion(.failure(HTTPCode.badRequest))
+            case 400...499: completion(.failure(HTTPClient.clientError))
                 
-            case 404:
-                completion(.failure(HTTPCode.notFound))
-            
-            case 500...511:
-                completion(.failure(HTTPCode.serverError))
+            case 500...599: completion(.failure(HTTPClient.serverError))
             
             default:
-               break
+                break
             }
+        
+            #if DEBUG
+            print(httpURLResponse.statusCode)
+            #endif
+            
         }.resume()
     }
+    
 }

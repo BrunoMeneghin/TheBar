@@ -54,7 +54,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     private func productsService() {
         guard let url = URL(string: productsAPIViewModel.productsStringURL) else { return }
         
-        webService.loadProducts(url: url) { [weak self] (result) in
+        webService.productsService(url: url) { [weak self] (result) in
             switch result {
                 
             case .success(let product):
