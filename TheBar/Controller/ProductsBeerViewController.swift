@@ -106,7 +106,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         showDetailsBeerVC.title = productVM?.productBeerName
         showDetailsBeerVC.taglineContent = productVM?.productBeerTagline ?? ""
         showDetailsBeerVC.descriptionContent = productVM?.productBeerDescription ?? ""
-        showDetailsBeerVC.donwloadBeerImageWithStringURL = productVM?.productBeerImage ?? ""
+        showDetailsBeerVC.downloadBeerImageWithStringURL = productVM?.productBeerImage ?? ""
         showDetailsBeerVC.alcoholContent = String(Double(productVM?.productBeerAlcoholContent ?? 0))
         showDetailsBeerVC.bitternessScale = String(Double(productVM?.productBeerBitternessScale ?? 0))
        

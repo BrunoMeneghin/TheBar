@@ -87,10 +87,10 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Observable Properties
     
-    var donwloadBeerImageWithStringURL: String = "" {
+    var downloadBeerImageWithStringURL: String = "" {
         didSet {
-            if donwloadBeerImageWithStringURL != oldValue {
-                customBeerImageView.downloadImage(from: donwloadBeerImageWithStringURL)
+            if downloadBeerImageWithStringURL != oldValue {
+                customBeerImageView.downloadImage(from: downloadBeerImageWithStringURL)
             } else {
                 customBeerImageView.image = defaultBeerImage
             }
@@ -150,11 +150,8 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Private Funcs
     
-    private final func buildUI() {
+    private func setupScrollView() {
         view.addSubview(scrollView)
-        view.backgroundColor = .white
-        
-        let metricValue: CGFloat = 60.0
         
         scrollView.addSubview(taglineLabel)
         scrollView.addSubview(descriptionLabel)
@@ -163,11 +160,24 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(bitternessScaleLabel)
       
         scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-      
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
+        scrollView.sizeToFit()
+    }
+    
+    private final func buildUI() {
+        view.backgroundColor = .white
+        
+        setupScrollView()
+        
+        let metricValue: CGFloat = 60.0
+        
         customBeerImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         customBeerImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
         customBeerImageView.heightAnchor.constraint(equalToConstant: view.frame.height/3.3).isActive = true
@@ -191,7 +201,6 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
         descriptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20.0).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: bitternessScaleLabel.bottomAnchor, constant: 15.0).isActive = true
         
-        scrollView.sizeToFit()
         customBeerImageView.sizeToFit()
     }
 }

@@ -31,7 +31,7 @@ class TheBarUITests: XCTestCase {
         let _ = XCUIApplication().launch()
         XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["Electric India"]/*[[".cells.staticTexts[\"Electric India\"]",".staticTexts[\"Electric India\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeUp()
     }
-
+    
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
             // This measures how long it takes to launch your application.
