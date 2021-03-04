@@ -9,74 +9,10 @@ import UIKit
 
 class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
-    // MARK: Setup Views
+    // MARK: Properties
     
-    private lazy var customBeerImageView = CustomImageView()
-    
-    private lazy var scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.clipsToBounds = true
-        scroll.backgroundColor = .clear
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        
-        return scroll
-    }()
-    
-    private lazy var taglineLabel: UILabel = {
-        let tagline = UILabel()
-        tagline.textColor = .black
-        tagline.numberOfLines = 2
-        tagline.contentMode = .center
-        tagline.textAlignment = .center
-        tagline.lineBreakMode = .byTruncatingTail
-        tagline.translatesAutoresizingMaskIntoConstraints = false
-        tagline.font = UIFont(name: "KohinoorDevanagari-Semibold", size: 18.0)
-        
-        return tagline
-    }()
-    
-    private lazy var alcoholContentLabel: UILabel = {
-        let tagline = UILabel()
-        tagline.numberOfLines = 1
-        tagline.textColor = .darkGray
-        tagline.contentMode = .center
-        tagline.textAlignment = .center
-        tagline.lineBreakMode = .byTruncatingTail
-        tagline.translatesAutoresizingMaskIntoConstraints = false
-        tagline.font = UIFont(name: "KohinoorDevanagari-Regular", size: 16.0)
-        
-        return tagline
-    }()
-    
-    private lazy var bitternessScaleLabel: UILabel = {
-        let bitterness = UILabel()
-        bitterness.numberOfLines = 1
-        bitterness.contentMode = .center
-        bitterness.textColor = .lightGray
-        bitterness.textAlignment = .center
-        bitterness.lineBreakMode = .byTruncatingTail
-        bitterness.translatesAutoresizingMaskIntoConstraints = false
-        bitterness.font = UIFont(name: "KohinoorDevanagari-Regular", size: 14.0)
-        
-        return bitterness
-    }()
-    
-    private lazy var descriptionLabel: UILabel = {
-        let description = UILabel()
-        description.text = ""
-        description.textColor = .black
-        description.numberOfLines = 0
-        description.contentMode = .center
-        description.textAlignment = .center
-        description.lineBreakMode = .byTruncatingTail
-        description.translatesAutoresizingMaskIntoConstraints = false
-        description.font = UIFont(name: "KohinoorDevanagari-Regular", size: 17.0)
-        description.attributedText = NSAttributedString(string: descriptionContent,
-                                                    attributes: [ .kern : 1.8 ])
-        
-        return description
-    }()
-    
+    fileprivate lazy var decorate = DecorateShowProductsBeerLayout()
+
     // MARK: - Computed Properties
     
     private var defaultBeerImage: UIImage? {
@@ -90,18 +26,20 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     var downloadBeerImageWithStringURL: String = "" {
         didSet {
             if downloadBeerImageWithStringURL != oldValue {
-                customBeerImageView.downloadImage(from: downloadBeerImageWithStringURL)
+                decorate.customBeerImageView.downloadImage(from: downloadBeerImageWithStringURL)
             } else {
-                customBeerImageView.image = defaultBeerImage
+                decorate.customBeerImageView.image = defaultBeerImage
             }
             view.layoutIfNeeded()
         }
     }
     
+    // MARK: Product Content
+    
     var taglineContent: String = "" {
         didSet {
             if taglineContent != oldValue {
-                taglineLabel.text = taglineContent
+                decorate.taglineLabel.text = taglineContent
             }
         }
     }
@@ -109,17 +47,17 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     var alcoholContent: String = "" {
         didSet {
             if alcoholContent != oldValue {
-                alcoholContentLabel.text = "Teor Alcoólico "
-                                           + alcoholContent
+                decorate.alcoholContentLabel.text = "Teor Alcoólico "
+                                                    + alcoholContent
             }
         }
     }
     
-    var bitternessScale: String = "" {
+    var bitternessScaleContent: String = "" {
         didSet {
-            if bitternessScale != oldValue {
-                bitternessScaleLabel.text = "Escala de Amargor "
-                                            + bitternessScale
+            if bitternessScaleContent != oldValue {
+                decorate.bitternessScaleLabel.text = "Escala de Amargor "
+                                                     + bitternessScaleContent
             }
         }
     }
@@ -127,7 +65,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     var descriptionContent: String = "" {
         didSet {
             if descriptionContent != oldValue {
-                descriptionLabel.text = descriptionContent
+                decorate.descriptionLabel.text = descriptionContent
             }
         }
     }
@@ -136,71 +74,15 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.delegate = self
-        
-        buildUI()
+        decorate.scrollView.delegate = self
+        decorate.drawable(view)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width,
-                                       height: UIScreen.main.bounds.height +
-                                               descriptionLabel.frame.height)
-    }
-    
-    // MARK: - Private Funcs
-    
-    private func setupScrollView() {
-        view.addSubview(scrollView)
-        
-        scrollView.addSubview(taglineLabel)
-        scrollView.addSubview(descriptionLabel)
-        scrollView.addSubview(customBeerImageView)
-        scrollView.addSubview(alcoholContentLabel)
-        scrollView.addSubview(bitternessScaleLabel)
-      
-        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
-        
-        scrollView.sizeToFit()
-    }
-    
-    private final func buildUI() {
-        view.backgroundColor = .white
-        
-        setupScrollView()
-        
-        let metricValue: CGFloat = 60.0
-        
-        customBeerImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        customBeerImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
-        customBeerImageView.heightAnchor.constraint(equalToConstant: view.frame.height/3.3).isActive = true
-        customBeerImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: metricValue / 2).isActive = true
-        customBeerImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: metricValue).isActive = true
-        customBeerImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -metricValue).isActive = true
-        
-        taglineLabel.leadingAnchor.constraint(equalTo: customBeerImageView.leadingAnchor).isActive = true
-        taglineLabel.trailingAnchor.constraint(equalTo: customBeerImageView.trailingAnchor).isActive = true
-        taglineLabel.topAnchor.constraint(equalTo: customBeerImageView.bottomAnchor, constant: 10.0).isActive = true
-        
-        alcoholContentLabel.leadingAnchor.constraint(equalTo: taglineLabel.leadingAnchor).isActive = true
-        alcoholContentLabel.trailingAnchor.constraint(equalTo: taglineLabel.trailingAnchor).isActive = true
-        alcoholContentLabel.topAnchor.constraint(equalTo: taglineLabel.bottomAnchor, constant: 8.0).isActive = true
-        
-        bitternessScaleLabel.leadingAnchor.constraint(equalTo: alcoholContentLabel.leadingAnchor).isActive = true
-        bitternessScaleLabel.trailingAnchor.constraint(equalTo: alcoholContentLabel.trailingAnchor).isActive = true
-        bitternessScaleLabel.topAnchor.constraint(equalTo: alcoholContentLabel.bottomAnchor, constant: 7.5).isActive = true
-        
-        descriptionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20.0).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20.0).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: bitternessScaleLabel.bottomAnchor, constant: 15.0).isActive = true
-        
-        customBeerImageView.sizeToFit()
+        decorate.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width,
+                                                height: UIScreen.main.bounds.height +
+                                                        decorate.descriptionLabel.frame.height
+        )
     }
 }

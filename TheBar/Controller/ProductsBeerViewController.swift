@@ -10,15 +10,14 @@ import UIKit
 private let cellIReusableIdentifier: String = "CellID"
 
 class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+        
     // MARK: Instances & Properties
     
     fileprivate lazy var webService = WebService()
     
     private var productsViewModel: ProductListViewModel?
     private lazy var productsAPIViewModel = ProductAPIViewModel()
-    private lazy var tableView = CustomTableView(frame: CGRect.zero,
-                                                 style: .grouped)
+    private lazy var tableView = CustomTableView(frame: CGRect.zero, style: .grouped)
         
     // MARK: - Lifecycle
     
@@ -27,13 +26,12 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ProductsBeerTableViewCell.self,
-                           forCellReuseIdentifier: cellIReusableIdentifier)
+        tableView.register(ProductsBeerTableViewCell.self, forCellReuseIdentifier: cellIReusableIdentifier)
         
         buildUI()
     }
     
-    // MARK: Private func
+    // MARK: Private func's
     
     private func buildUI() {
         navigationController?.navigationBar.topItem?.title = "Beers"
@@ -101,14 +99,14 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let productVM = self.productsViewModel?.productAtIndexPath(indexPath.row)
-        
+
         let showDetailsBeerVC = ShowBeerViewController()
         showDetailsBeerVC.title = productVM?.productBeerName
         showDetailsBeerVC.taglineContent = productVM?.productBeerTagline ?? ""
         showDetailsBeerVC.descriptionContent = productVM?.productBeerDescription ?? ""
         showDetailsBeerVC.downloadBeerImageWithStringURL = productVM?.productBeerImage ?? ""
         showDetailsBeerVC.alcoholContent = String(Double(productVM?.productBeerAlcoholContent ?? 0))
-        showDetailsBeerVC.bitternessScale = String(Double(productVM?.productBeerBitternessScale ?? 0))
+        showDetailsBeerVC.bitternessScaleContent = String(Double(productVM?.productBeerBitternessScale ?? 0))
        
         navigationController?.pushViewController(showDetailsBeerVC, animated: true)
     }

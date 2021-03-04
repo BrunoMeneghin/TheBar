@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+/// A type that can draw into a context
+protocol Drawable {
+    associatedtype Layout
+}
