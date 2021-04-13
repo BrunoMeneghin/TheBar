@@ -1,5 +1,5 @@
 # TheBar
-Displaying products with MVVM - architecture pattern 
+Displaying products with MVVM design pattern
 
 ## Swift
 
