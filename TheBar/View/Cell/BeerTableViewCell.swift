@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ProductsBeerTableViewCell: UITableViewCell {
+class BeerTableViewCell: UITableViewCell {
     
     // MARK: Properties
     
     fileprivate lazy var customBackgroundColor = UIColor.clear
     
-    // MARK: - Setup Views
+    // MARK: Setup Views
     
     lazy var beerImageView = CustomImageView()
     
@@ -58,7 +58,7 @@ class ProductsBeerTableViewCell: UITableViewCell {
         return label
     }()
     
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

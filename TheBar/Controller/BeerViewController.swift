@@ -9,9 +9,16 @@ import UIKit
 
 private let cellIReusableIdentifier: String = "CellID"
 
-class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-        
-    // MARK: Instances & Properties
+class BeerViewController: UIViewController, DrawableBeers {
+    
+    // MARK: Properties
+    
+    var beerName = String()
+    var taglineContent = String()
+    var descriptionContent = String()
+    var downloadBeerImageWithStringURL = String()
+    var alcoholContent = String()
+    var bitternessScaleContent = String()
     
     fileprivate lazy var webService = WebService()
     
@@ -19,7 +26,7 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     private lazy var productsAPIViewModel = ProductAPIViewModel()
     private lazy var tableView = CustomTableView(frame: CGRect.zero, style: .grouped)
         
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +35,12 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
         tableView.dataSource = self
         tableView.register(ProductsBeerTableViewCell.self, forCellReuseIdentifier: cellIReusableIdentifier)
         
-        buildUI()
+        engineeringIU()
     }
     
-    // MARK: Private func's
+    // MARK: Functions
     
-    private func buildUI() {
+    private func engineeringIU() {
         navigationController?.navigationBar.topItem?.title = "Beers"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -46,15 +53,15 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
     
-        productsService()
+        beerProductServices()
     }
     
-    private func productsService() {
-        guard let url = URL(string: productsAPIViewModel.productsStringURL) else { return }
+    private func beerProductServices() {
+        guard let url = URL(string: productsAPIViewModel.productsStringURL)
+        else { return }
         
-        webService.productsService(url: url) { [weak self] (result) in
+        webService.products(url: url) { [weak self] (result) in
             switch result {
-                
             case .success(let product):
                 if let product = product {
                     self?.productsViewModel = ProductListViewModel(productList: product)
@@ -64,7 +71,6 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
                         self?.view.layoutIfNeeded()
                     }
                 }
-                
             case .failure(let error):
                 #if DEBUG
                 print(error.identifier)
@@ -74,8 +80,11 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
             }
         }
     }
+}
+
+extension BeerViewController: UITableViewDataSource, UITableViewDelegate {
     
-    // MARK: - TableView Data Source
+    // MARK: TableView Data Source
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.productsViewModel?.numberOfSections ?? 0
@@ -86,7 +95,8 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell
+        else { return UITableViewCell() }
        
         let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
         
@@ -98,17 +108,19 @@ class ProductsBeerViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let productVM = self.productsViewModel?.productAtIndexPath(indexPath.row)
+        guard let productVM = self.productsViewModel?.productAtIndexPath(indexPath.row)
+        else { return }
 
-        let showDetailsBeerVC = ShowBeerViewController()
-        showDetailsBeerVC.title = productVM?.productBeerName
-        showDetailsBeerVC.taglineContent = productVM?.productBeerTagline ?? ""
-        showDetailsBeerVC.descriptionContent = productVM?.productBeerDescription ?? ""
-        showDetailsBeerVC.downloadBeerImageWithStringURL = productVM?.productBeerImage ?? ""
-        showDetailsBeerVC.alcoholContent = String(Double(productVM?.productBeerAlcoholContent ?? 0))
-        showDetailsBeerVC.bitternessScaleContent = String(Double(productVM?.productBeerBitternessScale ?? 0))
+        beerName = productVM.productBeerName
+        taglineContent = productVM.productBeerTagline
+        descriptionContent = productVM.productBeerDescription
+        downloadBeerImageWithStringURL = productVM.productBeerImage
+        alcoholContent = String(Double(productVM.productBeerAlcoholContent))
+        bitternessScaleContent = String(Double(productVM.productBeerBitternessScale ?? 0))
        
-        navigationController?.pushViewController(showDetailsBeerVC, animated: true)
+        let showBeerViewController = ShowBeerViewController()
+        showBeerViewController.drawableBeersDelegate = self
+        navigationController?.pushViewController(showBeerViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
