@@ -14,11 +14,11 @@ class BeerViewController: UIViewController, DrawableBeers {
     // MARK: Properties
     
     var beerName = String()
-    var taglineContent = String()
-    var descriptionContent = String()
-    var downloadBeerImageWithStringURL = String()
-    var alcoholContent = String()
-    var bitternessScaleContent = String()
+    var beerTagline = String()
+    var beerDescription = String()
+    var beerAlcoholContent = String()
+    var beerBitternessScale = String()
+    var beerDownloadImageWithStringURL = String()
     
     fileprivate lazy var webService = WebService()
     
@@ -33,7 +33,7 @@ class BeerViewController: UIViewController, DrawableBeers {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(ProductsBeerTableViewCell.self, forCellReuseIdentifier: cellIReusableIdentifier)
+        tableView.register(BeerTableViewCell.self, forCellReuseIdentifier: cellIReusableIdentifier)
         
         engineeringIU()
     }
@@ -95,7 +95,7 @@ extension BeerViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? ProductsBeerTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIReusableIdentifier, for: indexPath) as? BeerTableViewCell
         else { return UITableViewCell() }
        
         let productViewModel = self.productsViewModel?.productAtIndexPath(indexPath.row)
@@ -112,11 +112,11 @@ extension BeerViewController: UITableViewDataSource, UITableViewDelegate {
         else { return }
 
         beerName = productVM.productBeerName
-        taglineContent = productVM.productBeerTagline
-        descriptionContent = productVM.productBeerDescription
-        downloadBeerImageWithStringURL = productVM.productBeerImage
-        alcoholContent = String(Double(productVM.productBeerAlcoholContent))
-        bitternessScaleContent = String(Double(productVM.productBeerBitternessScale ?? 0))
+        beerTagline = productVM.productBeerTagline
+        beerDescription = productVM.productBeerDescription
+        beerDownloadImageWithStringURL = productVM.productBeerImage
+        beerAlcoholContent = String(Double(productVM.productBeerAlcoholContent))
+        beerBitternessScale = String(Double(productVM.productBeerBitternessScale ?? 0))
        
         let showBeerViewController = ShowBeerViewController()
         showBeerViewController.drawableBeersDelegate = self

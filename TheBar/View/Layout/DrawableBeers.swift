@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+/// A protocol so that we can present in a show products of beer
+protocol DrawableBeers: class {
+    var beerName: String { get set }
+    var beerTagline: String { get set }
+    var beerDescription: String { get set }
+    var beerDownloadImageWithStringURL: String { get set }
+    var beerAlcoholContent: String { get set }
+    var beerBitternessScale: String { get set }
+}
+

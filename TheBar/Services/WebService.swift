@@ -11,7 +11,7 @@ final class WebService {
     
     // MARK: Function
     
-    func productsService(url: URL, completion: @escaping (Result<[Product]?, HTTPClient>) -> Void) {
+    func products(url: URL, completion: @escaping (Result<[Product]?, HTTPClient>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data,
                                 let response = response else {

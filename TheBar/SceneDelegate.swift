@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.backgroundColor = .white
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = UINavigationController(rootViewController: ProductsBeerViewController())
+        window?.rootViewController = UINavigationController(rootViewController: BeerViewController())
         window?.rootViewController?.view.backgroundColor = .white
 
         window?.makeKeyAndVisible()
