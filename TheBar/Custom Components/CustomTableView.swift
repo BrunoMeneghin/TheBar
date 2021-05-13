@@ -11,7 +11,7 @@ class CustomTableView: UITableView {
     
     // MARK: Properties
     
-    fileprivate let customBackgroundColor = UIColor.clear
+    fileprivate lazy var customBackgroundColor = UIColor.systemBackground
     
     // MARK: - Lifecycle
     

@@ -11,7 +11,7 @@ class CustomImageView: UIImageView {
     
     // MARK: Properties
     
-    fileprivate lazy var customBackgroundColor = UIColor(white: 0.1, alpha: 0.05)
+    fileprivate lazy var customBackgroundColor = UIColor.systemGray4
     
     // MARK: Init
     

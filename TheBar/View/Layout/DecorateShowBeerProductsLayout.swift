@@ -25,7 +25,7 @@ struct DecorateShowBeerProductsLayout: DrawableShowBeerProducts {
     
     lazy var taglineLabel: UILabel = {
         let tagline = UILabel()
-        tagline.textColor = .black
+        tagline.textColor = .label
         tagline.numberOfLines = 2
         tagline.contentMode = .center
         tagline.textAlignment = .center
@@ -37,16 +37,16 @@ struct DecorateShowBeerProductsLayout: DrawableShowBeerProducts {
     }()
     
     lazy var alcoholContentLabel: UILabel = {
-        let tagline = UILabel()
-        tagline.numberOfLines = 1
-        tagline.textColor = .darkGray
-        tagline.contentMode = .center
-        tagline.textAlignment = .center
-        tagline.lineBreakMode = .byTruncatingTail
-        tagline.translatesAutoresizingMaskIntoConstraints = false
-        tagline.font = UIFont(name: "KohinoorDevanagari-Regular", size: 16.0)
+        let content = UILabel()
+        content.numberOfLines = 1
+        content.textColor = .systemGray
+        content.contentMode = .center
+        content.textAlignment = .center
+        content.lineBreakMode = .byTruncatingTail
+        content.translatesAutoresizingMaskIntoConstraints = false
+        content.font = UIFont(name: "KohinoorDevanagari-Regular", size: 16.0)
         
-        return tagline
+        return content
     }()
     
     lazy var bitternessScaleLabel: UILabel = {
@@ -65,7 +65,7 @@ struct DecorateShowBeerProductsLayout: DrawableShowBeerProducts {
     lazy var descriptionLabel: UILabel = {
         let description = UILabel()
         description.text = ""
-        description.textColor = .black
+        description.textColor = .label
         description.numberOfLines = 0
         description.contentMode = .center
         description.textAlignment = .center
@@ -84,7 +84,7 @@ extension DrawableShowBeerProducts where Self == DecorateShowBeerProductsLayout 
         
         let metricValue: CGFloat = 60.0
         
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.addSubview(self.scrollView)
     
         scrollView.addSubview(taglineLabel)

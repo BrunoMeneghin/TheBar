@@ -21,7 +21,7 @@ class BeerTableViewCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 1
         label.contentMode = .left
-        label.textColor = .black
+        label.textColor = .label
         label.adjustsFontSizeToFitWidth = true
         label.lineBreakMode = .byTruncatingTail
         label.accessibilityIdentifier = "productBeerName"
@@ -47,7 +47,7 @@ class BeerTableViewCell: UITableViewCell {
     lazy var beerPrefixAlcoholContentLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .gray
+        label.textColor = .systemGray
         label.contentMode = .left
         label.text = "Alcohol content"
         label.adjustsFontSizeToFitWidth = true

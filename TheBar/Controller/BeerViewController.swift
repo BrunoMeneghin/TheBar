@@ -21,42 +21,34 @@ class BeerViewController: UIViewController, DrawableBeers {
     var beerDownloadImageWithStringURL = String()
     
     fileprivate lazy var webService = WebService()
+    fileprivate lazy var decorate = DecorateDrawableBeerProducts()
     
     private var productsViewModel: ProductListViewModel?
     private lazy var productsAPIViewModel = ProductAPIViewModel()
-    private lazy var tableView = CustomTableView(frame: CGRect.zero, style: .grouped)
         
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(BeerTableViewCell.self, forCellReuseIdentifier: cellIReusableIdentifier)
-        
-        engineeringIU()
+        decorateBeerLayout()
+        productService()
     }
     
     // MARK: Functions
     
-    private func engineeringIU() {
+    private final func decorateBeerLayout() {
         navigationController?.navigationBar.topItem?.title = "Beers"
-        navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.addSubview(tableView)
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
-    
-        beerProductServices()
+        decorate.draw(with: view)
+        decorate.tableView.delegate = self
+        decorate.tableView.dataSource = self
+        decorate.tableView.register(BeerTableViewCell.self,
+                                    forCellReuseIdentifier: cellIReusableIdentifier)
+       
+        view.layoutIfNeeded()
     }
     
-    private func beerProductServices() {
+    private func productService() {
         guard let url = URL(string: productsAPIViewModel.productsStringURL)
         else { return }
         
@@ -67,8 +59,7 @@ class BeerViewController: UIViewController, DrawableBeers {
                     self?.productsViewModel = ProductListViewModel(productList: product)
                     
                     DispatchQueue.main.async { [weak self] in
-                        self?.tableView.reloadData()
-                        self?.view.layoutIfNeeded()
+                        self?.decorate.tableView.reloadData()
                     }
                 }
             case .failure(let error):

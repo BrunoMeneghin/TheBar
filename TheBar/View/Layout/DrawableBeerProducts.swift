@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol DrawableBeerProducts {
+    associatedtype Layout
+    var tableView: CustomTableView { mutating get set }
+}

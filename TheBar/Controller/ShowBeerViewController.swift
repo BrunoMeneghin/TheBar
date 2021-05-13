@@ -23,7 +23,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         decorate.scrollView.delegate = self
         decorate.drawable(view)
-        decorateBeerProducts()
+        decorateShowBeerLayout()
     }
     
     override func viewDidLayoutSubviews() {
@@ -36,7 +36,7 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: Functions 
     
-    private final func decorateBeerProducts() {
+    private final func decorateShowBeerLayout() {
         guard let beerName = drawableBeersDelegate?.beerName,
               let tagline = drawableBeersDelegate?.beerTagline,
               let alcohol = drawableBeersDelegate?.beerAlcoholContent,
@@ -47,9 +47,9 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
         
         decorate.taglineLabel.text = tagline
         decorate.descriptionLabel.text = description
-        decorate.alcoholContentLabel.text = alcohol
-        decorate.bitternessScaleLabel.text = bitternessScaleContent
         decorate.customBeerImageView.downloadImage(from: beerImageURL)
+        decorate.alcoholContentLabel.text = "Alcohol Content " + alcohol
+        decorate.bitternessScaleLabel.text = "Bitterness Scale " + bitternessScaleContent
         
         title = beerName
         view.layoutIfNeeded()

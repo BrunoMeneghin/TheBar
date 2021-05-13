@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6816CA19264D78AB00A23F48 /* DrawableBeerProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816CA18264D78AB00A23F48 /* DrawableBeerProducts.swift */; };
+		6816CA1E264D79AB00A23F48 /* DecorateDrawableBeerProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816CA1D264D79AB00A23F48 /* DecorateDrawableBeerProducts.swift */; };
 		6824A7A925B21A4700DB75E3 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6824A7A825B21A4700DB75E3 /* Product.swift */; };
 		68312467263CFAB400BB1761 /* DrawableBeers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68312466263CFAB400BB1761 /* DrawableBeers.swift */; };
 		6837A3C725B1103700FDE633 /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6837A3C625B1103700FDE633 /* ProductViewModel.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6816CA18264D78AB00A23F48 /* DrawableBeerProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawableBeerProducts.swift; sourceTree = "<group>"; };
+		6816CA1D264D79AB00A23F48 /* DecorateDrawableBeerProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateDrawableBeerProducts.swift; sourceTree = "<group>"; };
 		6824A7A825B21A4700DB75E3 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		68312466263CFAB400BB1761 /* DrawableBeers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawableBeers.swift; sourceTree = "<group>"; };
 		6837A3C625B1103700FDE633 /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 				68312466263CFAB400BB1761 /* DrawableBeers.swift */,
 				68EC8E8125F084C60078C6D7 /* DrawableShowBeerProducts.swift */,
 				68EC8E7825F07E100078C6D7 /* DecorateShowBeerProductsLayout.swift */,
+				6816CA18264D78AB00A23F48 /* DrawableBeerProducts.swift */,
+				6816CA1D264D79AB00A23F48 /* DecorateDrawableBeerProducts.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -403,7 +409,9 @@
 				68476FA025AFEC5E0005503C /* SceneDelegate.swift in Sources */,
 				68EC8E8225F084C60078C6D7 /* DrawableShowBeerProducts.swift in Sources */,
 				68C0C92C25B0D4970000A1F3 /* URLProtocol.swift in Sources */,
+				6816CA19264D78AB00A23F48 /* DrawableBeerProducts.swift in Sources */,
 				68C0C91C25B0C4230000A1F3 /* ProductsAPI.swift in Sources */,
+				6816CA1E264D79AB00A23F48 /* DecorateDrawableBeerProducts.swift in Sources */,
 				68C0C90425B088650000A1F3 /* BeerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
