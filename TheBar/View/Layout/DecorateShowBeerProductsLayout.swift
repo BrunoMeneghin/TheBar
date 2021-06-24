@@ -13,7 +13,7 @@ struct DecorateShowBeerProductsLayout: DrawableShowBeerProducts {
     // MARK: Subviews
     
     lazy var customBeerImageView = CustomImageView()
-    
+
     lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.clipsToBounds = true

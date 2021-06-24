@@ -23,15 +23,19 @@ class BeerViewController: UIViewController, DrawableBeers {
     fileprivate lazy var webService = WebService()
     fileprivate lazy var decorate = DecorateDrawableBeerProducts()
     
-    private var productsViewModel: ProductListViewModel?
+    private lazy var productsViewModel: ProductListViewModel? = nil
     private lazy var productsAPIViewModel = ProductAPIViewModel()
         
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decorateBeerLayout()
         productService()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        decorateBeerLayout()
     }
     
     // MARK: Functions

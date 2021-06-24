@@ -15,7 +15,7 @@ final class WebService {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data,
                                 let response = response else {
-               
+            
                 #if DEBUG
                 if let err = error {
                     print(err.localizedDescription)
@@ -32,9 +32,9 @@ final class WebService {
 
             case 200...299: completion(.success(products))
                 
-            case 400...499: completion(.failure(HTTPClient.clientError))
+            case 400...499: completion(.failure(.clientError))
                 
-            case 500...599: completion(.failure(HTTPClient.serverError))
+            case 500...599: completion(.failure(.serverError))
             
             default:
                 break
