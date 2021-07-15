@@ -1,11 +1,11 @@
 //
-//  URLProtocol.swift
+//  URLSetup.swift
 //  TheBar
 //
 //  Created by Bruno Meneghin on 14/01/21.
 //
 
-/// URL String should to be only a gettable property
-protocol URLProtocol {
+protocol URLSetup {
     var productsStringURL: String { get }
 }
+

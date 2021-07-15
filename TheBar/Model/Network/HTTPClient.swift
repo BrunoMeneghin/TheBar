@@ -12,13 +12,9 @@ enum HTTPClient: Error {
     
     var identifier: String {
         switch self {
-        
         case .success: return "Success"
-            
         case .clientError: return "Client Error"
-            
         case .serverError: return "Internal Server Error"
-        
         }
     }
 }

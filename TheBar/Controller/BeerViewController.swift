@@ -41,7 +41,9 @@ class BeerViewController: UIViewController, DrawableBeers {
     // MARK: Functions
     
     private final func decorateBeerLayout() {
-        navigationController?.navigationBar.topItem?.title = "Beers"
+        navigationController?.navigationBar
+                             .topItem?
+                             .title = BeerDescription.screenTitle(.beerView).title
         
         decorate.draw(with: view)
         decorate.tableView.delegate = self

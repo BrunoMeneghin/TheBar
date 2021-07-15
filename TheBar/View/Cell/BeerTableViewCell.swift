@@ -74,29 +74,32 @@ class BeerTableViewCell: UITableViewCell {
         contentView.addSubview(beerAlcoholContentLabel)
         contentView.addSubview(beerPrefixAlcoholContentLabel)
         contentView.backgroundColor = customBackgroundColor
-      
+
         NSLayoutConstraint.activate([
             beerImageView.widthAnchor.constraint(equalToConstant: .init(self.frame.width * 0.25)),
             beerImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: metricSpace),
             beerImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -metricSpace),
             beerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: metricSpace + metricSpace),
-          
+
             beerNameLabel.centerYAnchor.constraint(equalTo: beerImageView.centerYAnchor, constant: -metricSpace),
             beerNameLabel.leadingAnchor.constraint(equalTo: beerImageView.trailingAnchor, constant: metricSpace),
             beerNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -(metricSpace + metricSpace)),
-            
+
             beerPrefixAlcoholContentLabel.leadingAnchor.constraint(equalTo: beerNameLabel.leadingAnchor),
             beerPrefixAlcoholContentLabel.topAnchor.constraint(equalTo: beerNameLabel.bottomAnchor, constant: metricSpace / 2),
-            
+
             beerAlcoholContentLabel.centerYAnchor.constraint(equalTo: beerPrefixAlcoholContentLabel.centerYAnchor),
             beerAlcoholContentLabel.leadingAnchor.constraint(equalTo: beerPrefixAlcoholContentLabel.trailingAnchor, constant: metricSpace / 2)
         ])
-    
+
+
+        beerImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
         beerImageView.sizeToFit()
         beerNameLabel.sizeToFit()
         beerAlcoholContentLabel.sizeToFit()
     }
-    
+
     override func prepareForReuse() {
         beerImageView.image = nil 
     }

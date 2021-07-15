@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: Configure API URL
 
-struct ProductAPIViewModel: URLProtocol {
+struct ProductAPIViewModel: URLSetup {
     var productsStringURL: String {
         return ProductsAPI.productsURL
     }

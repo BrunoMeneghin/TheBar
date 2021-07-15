@@ -16,6 +16,8 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
     // MARK: Properties
     
     fileprivate lazy var decorate = DecorateShowBeerProductsLayout()
+    fileprivate lazy var alcoholContent = BeerDescription.information(.alcoholContent).title
+    fileprivate lazy var bitternessScale = BeerDescription.information(.bitternessScale).title
    
     // MARK: Lifecycle
     
@@ -48,8 +50,8 @@ class ShowBeerViewController: UIViewController, UIScrollViewDelegate {
         decorate.taglineLabel.text = tagline
         decorate.descriptionLabel.text = description
         decorate.customBeerImageView.downloadImage(from: beerImageURL)
-        decorate.alcoholContentLabel.text = "Alcohol Content " + alcohol
-        decorate.bitternessScaleLabel.text = "Bitterness Scale " + bitternessScaleContent
+        decorate.alcoholContentLabel.text = alcoholContent + alcohol
+        decorate.bitternessScaleLabel.text = bitternessScale + bitternessScaleContent
         
         title = beerName
         view.layoutIfNeeded()

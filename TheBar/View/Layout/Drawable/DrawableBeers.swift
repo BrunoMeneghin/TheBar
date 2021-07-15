@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A protocol so that we can present in a show beer products
+/// A `protocol` so that we can present in a show beer products
 protocol DrawableBeers: AnyObject {
     var beerName: String { get set }
     var beerTagline: String { get set }

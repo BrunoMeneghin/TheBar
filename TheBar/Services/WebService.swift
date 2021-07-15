@@ -13,27 +13,24 @@ final class WebService {
     
     func products(url: URL, completion: @escaping (Result<[Product]?, HTTPClient>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard error == nil, let data = data,
-                                let response = response else {
+            guard error == nil,
+                  let data = data,
+                  let response = response,
+                  let httpURLResponse = response as? HTTPURLResponse else {
             
                 #if DEBUG
                 if let err = error {
-                    print(err.localizedDescription)
+                    debugPrint(err.localizedDescription)
                 }
                 #endif
-                
                 return
             }
             
             let products = try? JSONDecoder().decode([Product].self, from: data)
-            guard let httpURLResponse = response as? HTTPURLResponse else { return }
-          
-            switch httpURLResponse.statusCode {
 
+            switch httpURLResponse.statusCode {
             case 200...299: completion(.success(products))
-                
             case 400...499: completion(.failure(.clientError))
-                
             case 500...599: completion(.failure(.serverError))
             
             default:
@@ -43,7 +40,6 @@ final class WebService {
             #if DEBUG
             print(httpURLResponse.statusCode)
             #endif
-            
         }.resume()
     }
 }

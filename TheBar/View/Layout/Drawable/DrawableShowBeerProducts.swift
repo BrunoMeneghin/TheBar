@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// A type so that we can draw into a context
+/// A `type` so that we can draw into a context
 protocol DrawableShowBeerProducts {
     associatedtype Layout
     var scrollView: UIScrollView { mutating get set }

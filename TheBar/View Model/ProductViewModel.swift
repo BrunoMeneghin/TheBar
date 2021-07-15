@@ -8,11 +8,14 @@
 import Foundation
 import UIKit
 
+
+
 // MARK: - Product List View Model
 
 struct ProductListViewModel {
     let productList: [Product]
 }
+
 
 extension ProductListViewModel {
     var numberOfSections: Int {
@@ -27,6 +30,8 @@ extension ProductListViewModel {
         let product = self.productList[indexPath]
         return ProductViewModel(product) 
     }
+
+
 }
 
 // MARK: - Product View Model

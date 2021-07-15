@@ -29,7 +29,8 @@
 		68C0C90A25B0BE280000A1F3 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C90925B0BE280000A1F3 /* WebService.swift */; };
 		68C0C91C25B0C4230000A1F3 /* ProductsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C91B25B0C4230000A1F3 /* ProductsAPI.swift */; };
 		68C0C92125B0C5610000A1F3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C92025B0C5610000A1F3 /* HTTPClient.swift */; };
-		68C0C92C25B0D4970000A1F3 /* URLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C92B25B0D4960000A1F3 /* URLProtocol.swift */; };
+		68C0C92C25B0D4970000A1F3 /* URLSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C0C92B25B0D4960000A1F3 /* URLSetup.swift */; };
+		68C785B526A09C0400D87AAF /* BeerDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C785B426A09C0400D87AAF /* BeerDescription.swift */; };
 		68E201F625B647B100085C7C /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E201F525B647B100085C7C /* DownloadImage.swift */; };
 		68EC8E7925F07E100078C6D7 /* DecorateShowBeerProductsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC8E7825F07E100078C6D7 /* DecorateShowBeerProductsLayout.swift */; };
 		68EC8E8225F084C60078C6D7 /* DrawableShowBeerProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EC8E8125F084C60078C6D7 /* DrawableShowBeerProducts.swift */; };
@@ -81,7 +82,8 @@
 		68C0C90925B0BE280000A1F3 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		68C0C91B25B0C4230000A1F3 /* ProductsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsAPI.swift; sourceTree = "<group>"; };
 		68C0C92025B0C5610000A1F3 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		68C0C92B25B0D4960000A1F3 /* URLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocol.swift; sourceTree = "<group>"; };
+		68C0C92B25B0D4960000A1F3 /* URLSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSetup.swift; sourceTree = "<group>"; };
+		68C785B426A09C0400D87AAF /* BeerDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerDescription.swift; sourceTree = "<group>"; };
 		68E201F525B647B100085C7C /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		68EC8E7825F07E100078C6D7 /* DecorateShowBeerProductsLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorateShowBeerProductsLayout.swift; sourceTree = "<group>"; };
 		68EC8E8125F084C60078C6D7 /* DrawableShowBeerProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawableShowBeerProducts.swift; sourceTree = "<group>"; };
@@ -235,21 +237,38 @@
 			isa = PBXGroup;
 			children = (
 				68C0C92025B0C5610000A1F3 /* HTTPClient.swift */,
-				68C0C92B25B0D4960000A1F3 /* URLProtocol.swift */,
+				68C0C92B25B0D4960000A1F3 /* URLSetup.swift */,
 				68C0C91B25B0C4230000A1F3 /* ProductsAPI.swift */,
 				68E201F525B647B100085C7C /* DownloadImage.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		68EC8E7725F07DDA0078C6D7 /* Layout */ = {
+		68C785B626A0A2A300D87AAF /* Drawable */ = {
 			isa = PBXGroup;
 			children = (
 				68312466263CFAB400BB1761 /* DrawableBeers.swift */,
 				68EC8E8125F084C60078C6D7 /* DrawableShowBeerProducts.swift */,
-				68EC8E7825F07E100078C6D7 /* DecorateShowBeerProductsLayout.swift */,
 				6816CA18264D78AB00A23F48 /* DrawableBeerProducts.swift */,
+			);
+			path = Drawable;
+			sourceTree = "<group>";
+		};
+		68C785B726A0A2B100D87AAF /* Decorate */ = {
+			isa = PBXGroup;
+			children = (
+				68EC8E7825F07E100078C6D7 /* DecorateShowBeerProductsLayout.swift */,
 				6816CA1D264D79AB00A23F48 /* DecorateDrawableBeerProducts.swift */,
+			);
+			path = Decorate;
+			sourceTree = "<group>";
+		};
+		68EC8E7725F07DDA0078C6D7 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				68C785B426A09C0400D87AAF /* BeerDescription.swift */,
+				68C785B626A0A2A300D87AAF /* Drawable */,
+				68C785B726A0A2B100D87AAF /* Decorate */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -391,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C785B526A09C0400D87AAF /* BeerDescription.swift in Sources */,
 				68C0C92125B0C5610000A1F3 /* HTTPClient.swift in Sources */,
 				68810BD125B3B7DB00561D3C /* ShowBeerViewController.swift in Sources */,
 				6837A3C725B1103700FDE633 /* ProductViewModel.swift in Sources */,
@@ -408,7 +428,7 @@
 				68476F9E25AFEC5E0005503C /* AppDelegate.swift in Sources */,
 				68476FA025AFEC5E0005503C /* SceneDelegate.swift in Sources */,
 				68EC8E8225F084C60078C6D7 /* DrawableShowBeerProducts.swift in Sources */,
-				68C0C92C25B0D4970000A1F3 /* URLProtocol.swift in Sources */,
+				68C0C92C25B0D4970000A1F3 /* URLSetup.swift in Sources */,
 				6816CA19264D78AB00A23F48 /* DrawableBeerProducts.swift in Sources */,
 				68C0C91C25B0C4230000A1F3 /* ProductsAPI.swift in Sources */,
 				6816CA1E264D79AB00A23F48 /* DecorateDrawableBeerProducts.swift in Sources */,
